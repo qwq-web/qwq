@@ -1,0 +1,44 @@
+{
+  "id": "2287946",
+  "name": "练习",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "599927",
+      "name": "微博",
+      "font_class": "weibo",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
+    },
+    {
+      "icon_id": "831907",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e62b",
+      "unicode_decimal": 58923
+    },
+    {
+      "icon_id": "6940853",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "13253771",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "18253064",
+      "name": "ins",
+      "font_class": "ins",
+      "unicode": "e62a",
+      "unicode_decimal": 58922
+    }
+  ]
+}

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./font/iconfont.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0；
+        }
+
+        li {
+            list-style: none;
+        }
+        input{
+            display: none;
+        }
+        span::before {
+            font-size: 23px;
+            color: #72B3DD;
+        }
+        .wrap #me:checked~p span:nth-child(1):after{
+            left: 0;
+            width: 100%;
+        }
+        .wrap #word:checked~p span:nth-child(2):after{
+            left: 0;
+            width: 100%;
+        }
+        .wrap #word:checked~p span:nth-child(2){
+            color: #4589B5;
+        }
+        .wrap #me:checked~p span:nth-child(1){
+            color: #4589B5;
+        }
+        .wrap #word:checked~.main .word{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+        .wrap #me:checked~.main .me{
+            transform: translateX(0px);
+            opacity: 1;
+        }
+        .clearfix::after {
+            contain: "";
+            display: block;
+            clear: both;
+        }
+
+        .wrap {
+            position: relative;
+            margin: 200px auto;
+            width: 630px;
+            height: 377px;
+            /* transform: scale(.9); */
+            box-shadow: 0 0 22px 3px rgba(0, 0, 0, .18);
+            animation: run .5s forwards;
+        }
+
+        .wrap>div {
+            float: left;
+            height: 100%;
+        }
+        .wrap .left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 390px;
+            padding: 30px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .wrap .left>p {
+            position: absolute;
+            z-index: 999;
+            width: 100%;
+            height: 30px;
+        }
+       
+        .wrap .left>p span {
+            float: left;
+            height: 30px;
+            width: 56px;
+            line-height: 30px;
+            position: relative;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 40px;
+            color: #8B979F;
+        }
+        .wrap .left>p span label{
+            cursor: pointer;
+        }
+        .wrap .left>p span::after{
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #4589B5;
+            bottom: 0;
+            left: 28px;
+            transition: .3s ;
+        }
+        .wrap .main{
+            width: 350px;
+            margin-top: 30px;
+        }
+        .wrap .main .me {
+            opacity: 0;
+            padding-top: 5px;
+            transform: translateX(-390px);
+            transition: .4s;
+        }
+        .wrap .word {
+            opacity: 0;
+            transform: translateX(390px);
+            transition: .4s;
+            position: absolute;
+            top: 66px; 
+        }
+        .wrap .main .me h3 {
+            margin-top: 5px;
+            height: 60px;
+            font-weight: 500;
+            font-size: 28px;
+            color: rgba(0, 0, 0, 0.7);
+            line-height: 60px;
+        }
+
+        .wrap .main .me h3 span {
+            font-size: 16px;
+            color: white;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+            text-align: right;
+            background: #72B3DD;
+            border-radius: 5px;
+            float: right;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        .wrap .main .me h5 {
+            font-size: 16px;
+            font-weight: normal;
+            margin: 0px 0 20px 0;
+            color: #8F9AA2;
+        }
+
+        .wrap .main .me p {
+            font-size: 14px;
+            color: #8F9AA2;
+        }
+
+        .wrap .main .me ul {
+            height: 30px;
+            width: 200px;
+            display: flex;
+            margin-top: 66px;
+            justify-content: space-between;
+        }
+        .wrap .main .me ul li{
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            position: relative;
+        }
+        .wrap .main .me ul li:hover span{
+            text-shadow: 0 0px 2px rgb(126, 189, 231);
+        }
+        .wrap .main .me ul li:hover::after{
+            transform: scale(1.1);
+        }
+        .wrap .main .me ul li::after{
+            position: absolute;
+            content: "";
+            width: 30px;
+            height: 30px;
+            top: 0;
+            left: 0px;
+            border-radius: 50%;
+            transition: .3s;
+            transform: scale(0);
+            box-shadow: 0 0 12px 2px rgb(105, 178, 226);
+        }
+        .wrap .main .me ul li.weixin{
+            position: relative;
+        }
+        .wrap .main .me ul li.weixin:hover .lg{
+            height: 55px;
+        }
+        .wrap .main .me ul li.weixin .lg{
+            width: 55px;
+            height: 0px;position: absolute;
+            top: 40px;
+            left: -10px;
+            background: red;
+            transition: .3s;
+        }
+        .wrap .main .me ul li.weixin .lg span{
+            position: relative;
+            top: 13px;
+            left: 55px;
+            opacity: 0;
+            color: rgb(65, 150, 206);
+            font-size: 12px;
+        }
+        .wrap .main .me ul li.weixin:hover .lg span{
+            position: relative;
+            top: 13px;
+            left: 55px;
+            opacity: 1;
+            color: rgb(65, 150, 206);
+            font-size: 12px;
+        }
+
+        .wrap .main .me ul li.qq{
+            position: relative;
+        }
+        .wrap .main .me ul li.qq:hover .lg{
+            height: 22px;
+        }
+        .wrap .main .me ul li.qq:hover .lg::after{
+            opacity: 1;
+        }
+        .wrap .main .me ul li.qq .lg{
+            width: 70px;
+            height: 0px;position: absolute;
+            top: 40px;
+            left: -18px;
+            font-size: 12px;
+            line-height: 22px;
+            border-radius: 10px;
+            color: white;
+            background-color: rgb(101, 180, 254);
+            transition: .3s;
+        }
+        .wrap .main .me ul li.qq .lg::after{
+            content: "";
+            opacity: 0;
+            position: absolute;
+            width: 0;
+            top: -15px;
+            left: 25px;
+            transition: .1s;
+            border: 8px solid transparent;
+            border-bottom: 8px solid rgb(101, 180, 254)
+        }
+        .wrap .right {
+            float: right;
+            background-color: red;
+        }
+
+        .wrap .right {
+            height: 100%;
+            /* margin: 2px; */
+            /* border-radius: 10px; */
+            width: 230px;
+            background: url("./img/25675000-3D6D-4018-8E6D-366DFDEDE7C1.png") center/cover;
+            opacity: 0.8;
+            background-position: -150px 0px;
+        }
+        .wrap .word ul{
+            width: 100%;
+        }
+        .wrap .word ul li{
+            width: 100%;
+            display: flex;
+            height: 44px;
+            margin: 35px 0;
+        }
+        .wrap .word ul li h4{
+            width: 100px;
+            padding-right: 0px;
+            border-right: 2px dotted #ddd;
+            line-height: 44px;
+            color: #8B979F
+        }
+        .wrap .word ul li .rlist{
+            text-indent: 1em;
+        }
+        .wrap .word ul li .top{
+            font-size: 12px;
+            color: #C1C7CB;
+        }
+        .wrap .word ul li .bot{
+            font-size: 14px;
+            margin-top: 5px;
+            color: #5A6F7C;
+            animation: run .5s forwards;
+            
+        }
+        @keyframes run{
+            0%{
+                opacity: 0;
+                transform: scale(0);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes run2{
+            0%{
+                opacity: 0;
+                transform: scale(0) translateX(-150px);
+            }
+            100%{
+                opacity: 1;
+                transform: scale(.67) translateX(-150px);
+            }
+        }
+        @media screen and (max-width: 980px) {
+            .wrap{
+                animation: run2 .5s forwards;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div class="wrap clearfix ">
+        <div class="left">
+            <input checked type="radio" name="me" id="me">
+            <input  type="radio" name="me" id="word">
+            <p>
+                <span><label for="me">个人简介</label></span>
+                <span><label for="word">工作经历</label></span>
+            </p>
+            <div class="main ">
+                <div class="me">
+                    <h3>路遥 <span style="cursor: pointer; user-select: none; " id="ovo">+ 关注</span></h3>
+                    <h5>前端开发讲师</h5>
+                    <p>我是路遥，是一名web前端开发工讲师，主要课程有有html css JavaScript vue node.js 等...</p>
+                    <ul>
+                        <li>
+                            <span class="iconfont icon-github"></span>
+                        </li>
+                        <li>
+                            <span class="iconfont icon-weibo"></span>
+                        </li>
+                        <li class="qq">
+                            <span class="iconfont 
+                            icon-qq"></span>
+                            <div class="lg">
+                                449150781
+                            </div>
+                        </li>
+                        <li>
+                            <span class="iconfont icon-ins"></span>
+                        </li>
+                        <li class="weixin">
+                            <span class="iconfont icon-weixin weixin"></span>
+                            <div class="lg">
+                                <span>amao113</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="word clearfix">
+                    <ul>
+                        <li>
+                            <h4>前端工程师</h4>
+                            <div class="rlist">
+                                <p class="top">2018 ~ 2019</p>
+                                <p class="bot">
+                                    上海某某某信息科技有限公司
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <h4>软件工程师</h4>
+                            <div class="rlist">
+                                <p class="top">2018 ~ 2019</p>
+                                <p class="bot">
+                                    上海某某某信息科技有限公司
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <h4>全栈工程师</h4>
+                            <div class="rlist">
+                                <p class="top">2018 ~ 2019</p>
+                                <p class="bot">
+                                    上海某某某信息科技有限公司
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="width: 100px; height: 0px;position: absolute;transition:.3s; overflow:hidden;top: 220px;left: 280px;" id="nice">
+                <div style="background:url('https://xuxing258.github.io/images/shabi.jpg') center/cover;width: 100px;height: 100px;" class="img"></div>
+                <p style="height: 15px;line-height:15px;font-size:12px;text-align: center;color: rgb(25, 210, 252);">weChat:amao113</p>
+            </div>
+        </div>
+        <div class="right">
+
+        </div>
+    </div>
+    <script>
+        let on = true;
+        let ovo = document.getElementById("ovo")
+        ovo.onclick = function(){
+            if(on){
+                nice.style.height = 115+"px"
+            }else{
+                nice.style.height = 0+"px"
+            }
+            on = !on
+        }
+    </script>
+</body>
+
+</html>
