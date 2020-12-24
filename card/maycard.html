@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>路与净个人名片</title>
     <link rel="stylesheet" href="./font/iconfont.css">
+	<link rel="icon" href="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=166161900,1978235057&fm=26&gp=0.jpg" type="image/x-icon">
     <style>
         * {
             margin: 0;
-            padding: 0；
+            padding: 0;
         }
-
+		body,html{
+			width:100%;
+		}
         li {
             list-style: none;
         }
@@ -52,13 +55,14 @@
         }
 
         .wrap {
+			/* transform: scale(1); */
+			overflow: hidden;
+			animation: run .5s forwards;
             position: relative;
             margin: 200px auto;
             width: 630px;
             height: 377px;
-            /* transform: scale(.9); */
             box-shadow: 0 0 22px 3px rgba(0, 0, 0, .18);
-            animation: run .5s forwards;
         }
 
         .wrap>div {
@@ -132,6 +136,7 @@
         }
 
         .wrap .main .me h3 span {
+			cursor: pointer;
             font-size: 16px;
             color: white;
             width: 100px;
@@ -190,41 +195,38 @@
             transform: scale(0);
             box-shadow: 0 0 12px 2px rgb(105, 178, 226);
         }
-        .wrap .main .me ul li.weixin{
+		.wrap .main .me ul li.weixin{
             position: relative;
         }
         .wrap .main .me ul li.weixin:hover .lg{
             height: 55px;
+        }
+		.wrap .main .me ul li.weixin:hover .lg span{
+			opacity:1;
         }
         .wrap .main .me ul li.weixin .lg{
             width: 55px;
             height: 0px;position: absolute;
             top: 40px;
             left: -10px;
-            background: red;
+            background: url("https://qwq-web.github.io/luyujing/public/img/weChat.jpeg") center/cover;
             transition: .3s;
         }
         .wrap .main .me ul li.weixin .lg span{
+			opacity:0;
             position: relative;
             top: 13px;
             left: 55px;
-            opacity: 0;
-            color: rgb(65, 150, 206);
-            font-size: 12px;
-        }
-        .wrap .main .me ul li.weixin:hover .lg span{
-            position: relative;
-            top: 13px;
-            left: 55px;
-            opacity: 1;
+			transition:.3s;
             color: rgb(65, 150, 206);
             font-size: 12px;
         }
 
-        .wrap .main .me ul li.qq{
+		.wrap .main .me ul li.qq{
             position: relative;
         }
         .wrap .main .me ul li.qq:hover .lg{
+			opacity: 1;
             height: 22px;
         }
         .wrap .main .me ul li.qq:hover .lg::after{
@@ -239,6 +241,7 @@
             line-height: 22px;
             border-radius: 10px;
             color: white;
+			opacity: 0;
             background-color: rgb(101, 180, 254);
             transition: .3s;
         }
@@ -260,12 +263,10 @@
 
         .wrap .right {
             height: 100%;
-            /* margin: 2px; */
-            /* border-radius: 10px; */
             width: 230px;
-            background: url("./img/my.png") center/cover;
-            opacity: 0.8;
-            background-position: -150px 0px;
+            background: url("https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201704%2F27%2F20170427210654_E2Pmu.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1611386692&t=8ea5d46046ecac9d977756087bba9b0c") center/cover;
+            opacity: 0.9;
+            border:none;
         }
         .wrap .word ul{
             width: 100%;
@@ -293,21 +294,19 @@
         .wrap .word ul li .bot{
             font-size: 14px;
             margin-top: 5px;
-            color: #5A6F7C;
-            animation: run .5s forwards;
-            
+            color: #5A6F7C
         }
-        @keyframes run{
+		@keyframes run{
             0%{
-                opacity: 0;
+				opacity: 0;
                 transform: scale(0);
             }
             100%{
-                opacity: 1;
+				opacity: 1;
                 transform: scale(1);
             }
         }
-        @keyframes run2{
+		@keyframes run2{
             0%{
                 opacity: 0;
                 transform: scale(0) translateX(-150px);
@@ -326,7 +325,6 @@
 </head>
 
 <body>
-    
     <div class="wrap clearfix ">
         <div class="left">
             <input checked type="radio" name="me" id="me">
@@ -337,9 +335,9 @@
             </p>
             <div class="main ">
                 <div class="me">
-                    <h3>路遥 <span style="cursor: pointer; user-select: none; " id="ovo">+ 关注</span></h3>
-                    <h5>前端开发讲师</h5>
-                    <p>我是路遥，是一名web前端开发工讲师，主要课程有有html css JavaScript vue node.js 等...</p>
+                    <h3>路与净 <span  style="cursor: pointer; user-select: none; " id="ovo">+ 关注</span></h3>
+                    <h5>前端开发工程师</h5>
+                    <p>大家好，我是路与净，是一名web前端开发工程师，技术栈有html css JavaScript vue nodejs 等... </p>
                     <ul>
                         <li>
                             <span class="iconfont icon-github"></span>
@@ -350,7 +348,7 @@
                         <li class="qq">
                             <span class="iconfont 
                             icon-qq"></span>
-                            <div class="lg">
+							<div class="lg">
                                 449150781
                             </div>
                         </li>
@@ -359,7 +357,7 @@
                         </li>
                         <li class="weixin">
                             <span class="iconfont icon-weixin weixin"></span>
-                            <div class="lg">
+							<div class="lg">
                                 <span>amao113</span>
                             </div>
                         </li>
@@ -372,7 +370,7 @@
                             <div class="rlist">
                                 <p class="top">2018 ~ 2019</p>
                                 <p class="bot">
-                                    上海某某某信息科技有限公司
+                                    虽未曾穿渡星河万顷
                                 </p>
                             </div>
                         </li>
@@ -381,7 +379,7 @@
                             <div class="rlist">
                                 <p class="top">2018 ~ 2019</p>
                                 <p class="bot">
-                                    上海某某某信息科技有限公司
+                                    我还是庆幸能与你相遇
                                 </p>
                             </div>
                         </li>
@@ -390,16 +388,15 @@
                             <div class="rlist">
                                 <p class="top">2018 ~ 2019</p>
                                 <p class="bot">
-                                    上海某某某信息科技有限公司
+                                    山水一程，三生有幸
                                 </p>
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            <div style="width: 100px; height: 0px;position: absolute;transition:.3s; overflow:hidden;top: 220px;left: 280px;" id="nice">
-                <div style="background:url('https://xuxing258.github.io/images/shabi.jpg') center/cover;width: 100px;height: 100px;" class="img"></div>
+			 <div style="width: 100px; height: 0px;position: absolute;transition:.3s; overflow:hidden;top: 220px;left: 280px;" id="nice">
+                <div style="background:url('https://qwq-web.github.io/luyujing/public/img/weChat.jpeg') center/cover;width: 100px;height: 100px;" class="img"></div>
                 <p style="height: 15px;line-height:15px;font-size:12px;text-align: center;color: rgb(25, 210, 252);">weChat:amao113</p>
             </div>
         </div>
@@ -408,7 +405,7 @@
         </div>
     </div>
     <script>
-        let on = true;
+		let on = true;
         let ovo = document.getElementById("ovo")
         ovo.onclick = function(){
             if(on){
