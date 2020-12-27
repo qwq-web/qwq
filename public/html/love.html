@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}li{list-style: none;}
+        body{
+            background: black;
+        }
+        ul{
+            display: flex;
+            position:relative;
+            justify-content: center;
+            /* align-items: center; */
+            margin: 200px auto;
+            height: 200px;
+            /* border: 1px solid red; */
+        }
+        ul li{
+           width: 20px;
+           height: 20px;
+           border-radius: 10px;
+           margin: 0px 10px; 
+        }
+        li:nth-child(1){
+            background-color: skyblue;
+            animation: love1 4s .1s infinite;
+        }
+        li:nth-child(2){
+            background-color: slateblue;
+            animation: love2 4s .2s infinite;
+        }
+        li:nth-child(3){
+            background-color: steelblue;
+            animation: love3 4s .3s infinite;
+        }
+        li:nth-child(4){
+            background-color: teal;
+            animation: love4 4s .4s infinite;
+        }
+        li:nth-child(5){
+            background-color: tomato;
+            animation: love5 4s .5s infinite;
+        }
+        li:nth-child(6){
+            background-color: seagreen;
+            animation: love4 4s .4s infinite;
+        }
+        li:nth-child(7){
+            background-color: yellowgreen;
+            animation: love3 4s .3s infinite;
+        }
+        li:nth-child(8){
+            background-color: rgb(66, 109, 202);
+            animation: love2 4s .2s infinite;
+        }
+        li:nth-child(9){
+            background-color: rgba(238, 109, 195, 0.822);
+            animation: love1 4s .1s infinite;
+        }
+        @keyframes love1 {
+            30%,50%{
+                transform: translateY(-30px);
+                height:60px;
+            }
+            50%,100%{
+                transform: translateY(0px);
+                height:20px;
+            }
+        }
+        @keyframes love2 {
+            30%,50%{
+                transform: translateY(-60px);
+                height:125px;
+            }
+            50%,100%{
+                transform: translateY(0px);
+                height:20px;
+            }
+        }
+        @keyframes love3 {
+            30%,50%{
+                transform: translateY(-75px);
+                height:160px;
+            }
+            50%,100%{
+                transform: translateY(0px);
+                height:20px;
+            }
+        }
+        @keyframes love4 {
+            30%,50%{
+                transform: translateY(-60px);
+                height:180px;
+            }
+            50%,100%{
+                transform: translateY(0px);
+                height:20px;
+            }
+        }
+        @keyframes love5 {
+            30%,50%{
+                transform: translateY(-45px);
+                height:200px;
+            }
+            50%,100%{
+                transform: translateY(0px);
+                height:20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+    </script>
+</body>
+</html>
