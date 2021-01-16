@@ -8,7 +8,7 @@ body {
   font-family: "Jost", sans-serif;
   background-image: url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F9%2F57f9d9e34bc80.jpg&refer=http%3A%2F%2Fpic1.win4000.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1613299579&t=6658288a02b87161f70cb42b868b5766);
   background-repeat: no-repeat;
-  background-size: 120%;
+  background-size: cover;
   background-position: left;
   background-attachment: fixed;
   min-height: 100vh;
@@ -22,7 +22,7 @@ body {
 .card {
   max-width: 340px;
   margin: auto;
-  overflow-y: auto;
+  overflow-y: hidden;
   position: relative;
   z-index: 1;
   overflow-x: hidden;
@@ -50,7 +50,7 @@ body {
 }
 
 .card[data-state="#experience"] {
-  height: 550px;
+  height: 600px;
 }
 
 .card.is-active .card-header {
